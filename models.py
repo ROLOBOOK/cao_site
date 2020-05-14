@@ -54,3 +54,7 @@ class Count_defect_zondes(db.Model):
     date = db.Column(db.DateTime)
 
 
+class Total_number_zondes(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    type_zondes = db.Column(db.String(100), nullable=False)
+    total_chek_zondes = db.Column(db.Integer)
