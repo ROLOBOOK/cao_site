@@ -36,6 +36,7 @@ class AdminMixin:
     def is_accessible(self): #- проверяет доступность вьюхи пользователю
         return current_user.has_role('admin')
 
+
     def inaccessible_callback(self,name, **kwargs): #-если пользователю не доступна вбюхе
         return redirect(url_for('security.login', next=request.url )) #переводим на страницу авторизации
 
@@ -50,7 +51,7 @@ admin = Admin(app, 'CAO_admin', url='/', index_view=HomeAdmin(name='Home'))
 
 admin.add_view(AdminView(User, db.session)) #  связываем таблица с админкой. вытаскивает из базы и показывает в иеб интерфейсе
 admin.add_view(AdminView(Role, db.session))
-
+admin.add_view(AdminView(Count_defect_zondes, db.session))
 
 
 
