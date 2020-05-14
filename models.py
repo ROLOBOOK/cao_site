@@ -10,7 +10,7 @@ roles_users = db.Table('roles_users',
 )
 
 
-class Role(db.Model, UserMixin):
+class Role(db.Model, RoleMixin):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(100), unique=True)
 
@@ -21,9 +21,8 @@ class Role(db.Model, UserMixin):
         return f'Role {self.name}'
 
 
-class User(db.Model,RoleMixin):
+class User(db.Model,UserMixin):
     id =  db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(100))
     active = db.Column(db.Boolean())
     email = db.Column(db.String(100), unique=True)
@@ -33,6 +32,6 @@ class User(db.Model,RoleMixin):
         super(User, self).__init__(*args,**kwargs)
 
     def __repr__(self):
-        return f'User {self.name}'
+        return f'User {self.email}'
 
 
