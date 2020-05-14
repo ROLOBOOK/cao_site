@@ -1,0 +1,88 @@
+<!-- откуда берется шаблон
+
+
+--> {% extends 'base.html' %}
+
+{% block title %}
+        
+table2
+
+{% endblock %}
+
+
+{% block body %}
+<style type="text/css">
+
+   TD {
+    background: #fff; /* Цвет фона ячеек */
+    text-align: center; /* Выравнивание по центру */
+   }
+
+th{
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+height: 170px
+}
+
+   </style>
+
+
+<div class="col">
+<form action="{{ url_for('table2') }}" method='POST'>
+
+<table border="4">
+  <thead>
+    <tr>
+      <th style="font-size: 12px;width: 80px" >Порядковый номер</th>
+      <th style="font-size: 12px;width: 80px" >Номер радиозонда</th>
+      <th style="font-size: 12px;width: 80px">Дата изготовления радиозонда</th>
+      <th style="font-size: 12px;width: 80px">Тип радиозонда</th>
+      <th style="font-size: 12px;width: 80px">Частота радиозонда</th>
+      <th style="font-size: 12px;width: 80px">Нет генерации СВЧ</th>
+      <th style="font-size: 12px;width: 80px">Несущая частота</th>
+      <th style="font-size: 12px;width: 80px">Частота суперизации 800±25 кГц</th>
+      <th style="font-size: 12px;width: 80px">Отсутствие ответной паузы</th>
+      <th style="font-size: 12px;width: 80px">нарушены длительности периодов импульсов</th>
+      <th style="font-size: 12px;width: 80px">Нарушена очередность</th>
+      <th style="font-size: 12px;width: 80px">отказ телеметри ческого</th>
+      <th style="font-size: 12px;width: 80px" >Другие не указанные причины</th>
+      <th style="font-size: 12px;width: 80px" >Погрешность датчика температуры ∆Т > 1.8ºС</th>
+      <th style="font-size: 12px;width: 80px" >Погрешность датчика влажности ∆U > 15%</th>
+      <th  style="font-size: 12px;width: 80px">Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for  name,i in names %}
+    <tr>
+      <td>{{i}}</td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-1"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-2"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-3"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-4"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-5"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-6"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-7"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-8"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-9"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-10"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-11"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-12"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-13"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-14"></td>
+      <td><input type="text"style="width: 80px;height: 25px" name="{{name}}-15"></td>
+
+    </tr>
+ {% endfor %}
+  </tbody>
+</table>
+
+<button type="submit"> Записать данные</button>
+</form>
+
+</div>
+{% endblock %}
+
+

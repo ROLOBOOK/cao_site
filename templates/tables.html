@@ -1,0 +1,41 @@
+<!-- откуда берется шаблон
+
+
+--> {% extends 'base.html' %}
+
+{% block title %}
+        
+Tables
+
+{% endblock %}
+
+
+{% block body %}
+
+<h1>{{save}}</h1>
+
+<div class="row"> 
+<div class="col-6">
+
+<form action="{{ url_for('table') }}" method='POST'> 
+
+{% for i in form %}
+
+{{i.label(class='control-label')}}
+ {{i}}<br>
+ {%endfor%}
+
+
+
+<button type="submit"> Записать данные</button>
+</form>
+
+</div>
+
+
+
+<div class="col-sm"> aaffa </div> </div>
+
+
+
+{% endblock %}
